@@ -3,15 +3,27 @@ export const ROUTES = {
   LOGIN: "/login",
   REGISTER: "/register",
   FORGOT_PASSWORD: "/forgot-password",
+  RESET_PASSWORD: "/reset-password",
+  ONBOARDING: "/onboarding",
   DASHBOARD: "/dashboard",
   AI_CHAT: "/ai-chat",
+  CONVERSATION_CHAT: "/ai-chat/session",
   SPEAKING: "/speaking",
+  CONVERSATION_SESSION: "/speaking/session",
+  SPEAKING_SUMMARY: "/speaking/summary",
+  SPEAKING_HISTORY_DETAIL: "/speaking/history/:id",
+  LESSONS: "/lessons",
+  LESSON_DETAIL: "/lessons/:id",
   GRAMMAR: "/grammar",
   VOCABULARY: "/vocabulary",
   LISTENING: "/listening",
   PROGRESS: "/progress",
+  ACHIEVEMENTS: "/achievements",
+  NOTIFICATIONS: "/notifications",
   PROFILE: "/profile",
   SETTINGS: "/settings",
+  HELP: "/help",
+  ABOUT: "/about",
   NOT_FOUND: "/404",
   ADMIN: "/admin",
   ADMIN_LOGIN: "/admin/login",
@@ -22,3 +34,4 @@ export const ROUTES = {
 };
 
 export default ROUTES;
+

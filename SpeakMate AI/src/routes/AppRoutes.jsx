@@ -24,6 +24,18 @@ import Register from "@pages/Register";
 import Settings from "@pages/Settings";
 import SpeakingPractice from "@pages/SpeakingPractice";
 import Vocabulary from "@pages/Vocabulary";
+import ConversationChat from "@pages/ConversationChat";
+import ConversationSession from "@pages/ConversationSession";
+import SpeakingSummary from "@pages/SpeakingSummary";
+import SpeakingHistoryDetail from "@pages/SpeakingHistoryDetail";
+import Lessons from "@pages/Lessons";
+import LessonDetail from "@pages/LessonDetail";
+import Achievements from "@pages/Achievements";
+import Notifications from "@pages/Notifications";
+import Help from "@pages/Help";
+import About from "@pages/About";
+import ResetPassword from "@pages/ResetPassword";
+import Onboarding from "@pages/Onboarding";
 
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
@@ -35,7 +47,7 @@ function PageTransition({ children }) {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
-      transition={{ duration: 0.22, ease: "easeOut" }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -48,7 +60,7 @@ export function AppRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        {/* Public Pages */}
+        {/* Public Marketing Landing */}
         <Route element={<AppLayout />}>
           <Route
             path={ROUTES.HOME}
@@ -96,9 +108,32 @@ export function AppRoutes() {
               </PublicRoute>
             }
           />
+
+          <Route
+            path={ROUTES.RESET_PASSWORD}
+            element={
+              <PublicRoute>
+                <PageTransition>
+                  <ResetPassword />
+                </PageTransition>
+              </PublicRoute>
+            }
+          />
         </Route>
 
-        {/* Protected Pages */}
+        {/* Onboarding Flow */}
+        <Route
+          path={ROUTES.ONBOARDING}
+          element={
+            <ProtectedRoute>
+              <PageTransition>
+                <Onboarding />
+              </PageTransition>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Main Authenticated Application Pages */}
         <Route element={<AppLayout />}>
           <Route
             path={ROUTES.DASHBOARD}
@@ -123,11 +158,77 @@ export function AppRoutes() {
           />
 
           <Route
+            path={ROUTES.CONVERSATION_CHAT}
+            element={
+              <ProtectedRoute>
+                <PageTransition>
+                  <ConversationChat />
+                </PageTransition>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
             path={ROUTES.SPEAKING}
             element={
               <ProtectedRoute>
                 <PageTransition>
                   <SpeakingPractice />
+                </PageTransition>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path={ROUTES.CONVERSATION_SESSION}
+            element={
+              <ProtectedRoute>
+                <PageTransition>
+                  <ConversationSession />
+                </PageTransition>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path={ROUTES.SPEAKING_SUMMARY}
+            element={
+              <ProtectedRoute>
+                <PageTransition>
+                  <SpeakingSummary />
+                </PageTransition>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path={ROUTES.SPEAKING_HISTORY_DETAIL}
+            element={
+              <ProtectedRoute>
+                <PageTransition>
+                  <SpeakingHistoryDetail />
+                </PageTransition>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path={ROUTES.LESSONS}
+            element={
+              <ProtectedRoute>
+                <PageTransition>
+                  <Lessons />
+                </PageTransition>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path={ROUTES.LESSON_DETAIL}
+            element={
+              <ProtectedRoute>
+                <PageTransition>
+                  <LessonDetail />
                 </PageTransition>
               </ProtectedRoute>
             }
@@ -178,6 +279,28 @@ export function AppRoutes() {
           />
 
           <Route
+            path={ROUTES.ACHIEVEMENTS}
+            element={
+              <ProtectedRoute>
+                <PageTransition>
+                  <Achievements />
+                </PageTransition>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path={ROUTES.NOTIFICATIONS}
+            element={
+              <ProtectedRoute>
+                <PageTransition>
+                  <Notifications />
+                </PageTransition>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
             path={ROUTES.PROFILE}
             element={
               <ProtectedRoute>
@@ -194,6 +317,28 @@ export function AppRoutes() {
               <ProtectedRoute>
                 <PageTransition>
                   <Settings />
+                </PageTransition>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path={ROUTES.HELP}
+            element={
+              <ProtectedRoute>
+                <PageTransition>
+                  <Help />
+                </PageTransition>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path={ROUTES.ABOUT}
+            element={
+              <ProtectedRoute>
+                <PageTransition>
+                  <About />
                 </PageTransition>
               </ProtectedRoute>
             }
