@@ -16,13 +16,16 @@ const ThemeContext = createContext(null);
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
-    // Restore persisted preference, default to dark
     return localStorage.getItem(STORAGE_KEYS.THEME) || "dark";
   });
 
-  // Apply theme attribute to <html> element so CSS variables take effect
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
+    const root = document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
     localStorage.setItem(STORAGE_KEYS.THEME, theme);
   }, [theme]);
 

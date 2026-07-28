@@ -24,7 +24,7 @@ export function Layout({ children }) {
   const showFooter = NO_SIDEBAR_PATHS.includes(location.pathname);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg-base)] text-[var(--text-primary)]">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-100">
       {/* Sticky top nav */}
       <Navbar />
 

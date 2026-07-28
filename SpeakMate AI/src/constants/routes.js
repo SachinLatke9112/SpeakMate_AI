@@ -13,6 +13,12 @@ export const ROUTES = {
   PROFILE: "/profile",
   SETTINGS: "/settings",
   NOT_FOUND: "/404",
+  ADMIN: "/admin",
+  ADMIN_LOGIN: "/admin/login",
+  ADMIN_USERS: "/admin/users",
+  ADMIN_LESSONS: "/admin/lessons",
+  ADMIN_ANALYTICS: "/admin/analytics",
+  ADMIN_SETTINGS: "/admin/settings",
 };
 
 export default ROUTES;

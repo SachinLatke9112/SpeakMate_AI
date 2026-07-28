@@ -7,15 +7,21 @@ const mockUser = {
   email: "learner@speakmate.ai",
   streak: 7,
   dailyGoal: 20,
+  role: "ADMIN",
 };
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  const login = async ({ email }) => {
-    const nextUser = { ...mockUser, email: email || mockUser.email };
+  const login = async ({ email, role }) => {
+    const nextUser = {
+      ...mockUser,
+      email: email || mockUser.email,
+      role: role || mockUser.role,
+    };
     setUser(nextUser);
-    return { success: true, user: nextUser };
+    localStorage.setItem("token", "mock-token");
+    return nextUser;
   };
 
   const register = async ({ name, email }) => {
@@ -26,11 +32,13 @@ export function AuthProvider({ children }) {
       streak: 0,
     };
     setUser(nextUser);
-    return { success: true, user: nextUser };
+    localStorage.setItem("token", "mock-token");
+    return nextUser;
   };
 
   const logout = () => {
     setUser(null);
+    localStorage.removeItem("token");
   };
 
   const value = useMemo(

@@ -3,11 +3,15 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 import AppLayout from "@components/layout/AppLayout";
 import AuthLayout from "@components/layout/AuthLayout";
+import AdminLayout from "@components/admin/AdminLayout";
 
 import ROUTES from "@constants/routes";
 
 import AiChat from "@pages/AiChat";
 import Dashboard from "@pages/Dashboard";
+import AdminDashboardPage from "@pages/AdminDashboardPage";
+import AdminLogin from "@pages/AdminLogin";
+import AdminUsersPage from "@pages/AdminUsersPage";
 import ForgotPassword from "@pages/ForgotPassword";
 import GrammarPractice from "@pages/GrammarPractice";
 import LandingPage from "@pages/LandingPage";
@@ -23,6 +27,7 @@ import Vocabulary from "@pages/Vocabulary";
 
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
+import AdminRoute from "./AdminRoute";
 
 function PageTransition({ children }) {
   return (
@@ -191,6 +196,72 @@ export function AppRoutes() {
                   <Settings />
                 </PageTransition>
               </ProtectedRoute>
+            }
+          />
+        </Route>
+
+        {/* Admin Routes */}
+        <Route
+          path={ROUTES.ADMIN_LOGIN}
+          element={
+            <PageTransition>
+              <AdminLogin />
+            </PageTransition>
+          }
+        />
+        <Route element={<AdminLayout />}>
+          <Route
+            path={ROUTES.ADMIN}
+            element={
+              <AdminRoute>
+                <PageTransition>
+                  <AdminDashboardPage />
+                </PageTransition>
+              </AdminRoute>
+            }
+          />
+
+          <Route
+            path={ROUTES.ADMIN_USERS}
+            element={
+              <AdminRoute>
+                <PageTransition>
+                  <AdminUsersPage />
+                </PageTransition>
+              </AdminRoute>
+            }
+          />
+
+          <Route
+            path={ROUTES.ADMIN_LESSONS}
+            element={
+              <AdminRoute>
+                <PageTransition>
+                  <AdminDashboardPage />
+                </PageTransition>
+              </AdminRoute>
+            }
+          />
+
+          <Route
+            path={ROUTES.ADMIN_ANALYTICS}
+            element={
+              <AdminRoute>
+                <PageTransition>
+                  <AdminDashboardPage />
+                </PageTransition>
+              </AdminRoute>
+            }
+          />
+
+          <Route
+            path={ROUTES.ADMIN_SETTINGS}
+            element={
+              <AdminRoute>
+                <PageTransition>
+                  <AdminDashboardPage />
+                </PageTransition>
+              </AdminRoute>
             }
           />
         </Route>
