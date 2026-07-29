@@ -12,85 +12,85 @@ const optionalGet = (url, fallback) =>
     });
 
 export const profileService = {
-  get: () => api.get("/api/profile/get-profile").then((res) => res.data),
-  update: (payload) => api.put("/api/profile/update-profile", payload).then((res) => res.data),
-  updateAvatar: (avatar) => api.put("/api/profile/avatar", { avatar }).then((res) => res.data),
+  get: () => api.get("/profile/get-profile").then((res) => res.data),
+  update: (payload) => api.put("/profile/update-profile", payload).then((res) => res.data),
+  updateAvatar: (avatar) => api.put("/profile/avatar", { avatar }).then((res) => res.data),
 };
 
 export const settingsService = {
-  get: () => api.get("/api/settings/get-settings").then((res) => res.data),
-  create: (payload) => api.post("/api/settings/create-settings", payload).then((res) => res.data),
-  update: (payload) => api.put("/api/settings/update-settings", payload).then((res) => res.data),
+  get: () => api.get("/settings/get-settings").then((res) => res.data),
+  create: (payload) => api.post("/settings/create-settings", payload).then((res) => res.data),
+  update: (payload) => api.put("/settings/update-settings", payload).then((res) => res.data),
 };
 
 export const onboardingService = {
-  get: () => api.get("/api/onboarding/get-onboarding").then((res) => res.data),
-  create: (payload) => api.post("/api/onboarding/create-onboarding", payload).then((res) => res.data),
-  update: (payload) => api.put("/api/onboarding", payload).then((res) => res.data),
+  get: () => api.get("/onboarding/get-onboarding").then((res) => res.data),
+  create: (payload) => api.post("/onboarding/create-onboarding", payload).then((res) => res.data),
+  update: (payload) => api.put("/onboarding", payload).then((res) => res.data),
 };
 
 export const lessonService = {
-  all: () => api.get("/api/lesson/get-all-lessons").then((res) => res.data),
-  active: () => api.get("/api/lesson/get-active-lessons").then((res) => res.data),
-  upcoming: () => optionalGet("/api/lesson/upcoming", []),
+  all: () => api.get("/lesson/get-all-lessons").then((res) => res.data),
+  active: () => api.get("/lesson/get-active-lessons").then((res) => res.data),
+  upcoming: () => optionalGet("/lesson/upcoming", []),
   byCategory: (category) =>
-    api.get(`/api/lesson/get-lessons-by-category/${encodeURIComponent(category)}`).then((res) => res.data),
+    api.get(`/lesson/get-lessons-by-category/${encodeURIComponent(category)}`).then((res) => res.data),
   byLevel: (level) =>
-    api.get(`/api/lesson/get-lessons-by-level/${encodeURIComponent(level)}`).then((res) => res.data),
+    api.get(`/lesson/get-lessons-by-level/${encodeURIComponent(level)}`).then((res) => res.data),
 };
 
 export const lessonModuleService = {
-  list: (params = {}) => api.get("/api/lessons", { params }).then((r) => r.data),
-  categories: () => api.get("/api/lessons/categories").then((r) => r.data),
-  detail: (id) => api.get(`/api/lessons/${id}`).then((r) => r.data),
-  recommended: () => optionalGet("/api/lessons/recommended", []),
-  continueLearning: () => optionalGet("/api/lessons/continue", []),
+  list: (params = {}) => api.get("/lessons", { params }).then((r) => r.data),
+  categories: () => api.get("/lessons/categories").then((r) => r.data),
+  detail: (id) => api.get(`/lessons/${id}`).then((r) => r.data),
+  recommended: () => optionalGet("/lessons/recommended", []),
+  continueLearning: () => optionalGet("/lessons/continue", []),
   search: (q, category, difficulty) =>
-    api.get("/api/lessons/search", { params: { q, category, difficulty } }).then((r) => r.data),
-  recent: () => optionalGet("/api/lessons/recent", []),
-  completed: () => optionalGet("/api/lessons/completed", []),
-  start: (id) => api.post(`/api/lessons/start/${id}`).then((r) => r.data),
-  updateProgress: (payload) => api.put("/api/lessons/progress", payload).then((r) => r.data),
-  complete: (id) => api.put(`/api/lessons/complete/${id}`).then((r) => r.data),
+    api.get("/lessons/search", { params: { q, category, difficulty } }).then((r) => r.data),
+  recent: () => optionalGet("/lessons/recent", []),
+  completed: () => optionalGet("/lessons/completed", []),
+  start: (id) => api.post(`/lessons/start/${id}`).then((r) => r.data),
+  updateProgress: (payload) => api.put("/lessons/progress", payload).then((r) => r.data),
+  complete: (id) => api.put(`/lessons/complete/${id}`).then((r) => r.data),
 };
 
 export const vocabularyService = {
-  all: () => api.get("/api/vocabulary/get-all-vocabulary").then((res) => res.data),
-  favorites: () => api.get("/api/vocabulary/get-favorite-vocabulary").then((res) => res.data),
-  add: (word) => api.post("/api/vocabulary/add-vocabulary", { word }).then((res) => res.data),
-  remove: (id) => api.delete(`/api/vocabulary/delete-vocabulary/${id}`).then((res) => res.data),
-  toggleFavorite: (id) => api.put(`/api/vocabulary/toggle-favorite/${id}`).then((res) => res.data),
-  quiz: () => api.get("/api/vocabulary/quiz").then((res) => res.data),
+  all: () => api.get("/vocabulary/get-all-vocabulary").then((res) => res.data),
+  favorites: () => api.get("/vocabulary/get-favorite-vocabulary").then((res) => res.data),
+  add: (word) => api.post("/vocabulary/add-vocabulary", { word }).then((res) => res.data),
+  remove: (id) => api.delete(`/vocabulary/delete-vocabulary/${id}`).then((res) => res.data),
+  toggleFavorite: (id) => api.put(`/vocabulary/toggle-favorite/${id}`).then((res) => res.data),
+  quiz: () => api.get("/vocabulary/quiz").then((res) => res.data),
 };
 
 export const grammarService = {
-  check: (originalText) => api.post("/api/grammar/check-grammar", { originalText }).then((res) => res.data),
-  analyze: (originalText) => api.post("/api/grammar/check-grammar", { originalText }).then((res) => res.data),
-  history: () => api.get("/api/grammar/get-all-grammar").then((res) => res.data),
-  remove: (id) => api.delete(`/api/grammar/delete-grammar/${id}`).then((res) => res.data),
+  check: (originalText) => api.post("/grammar/check-grammar", { originalText }).then((res) => res.data),
+  analyze: (originalText) => api.post("/grammar/check-grammar", { originalText }).then((res) => res.data),
+  history: () => api.get("/grammar/get-all-grammar").then((res) => res.data),
+  remove: (id) => api.delete(`/grammar/delete-grammar/${id}`).then((res) => res.data),
 };
 
 export const aiService = {
-  chat: (prompt) => api.post("/api/ai/chat", { prompt }).then((res) => res.data),
-  grammar: (prompt) => api.post("/api/ai/grammar", { prompt }).then((res) => res.data),
-  vocabulary: (prompt) => api.post("/api/ai/vocabulary", { prompt }).then((res) => res.data),
-  improveSentence: (prompt) => api.post("/api/ai/improve-sentence", { prompt }).then((res) => res.data),
-  speakingFeedback: (prompt) => api.post("/api/ai/speaking-feedback", { prompt }).then((res) => res.data),
-  lessonQuiz: (prompt) => api.post("/api/ai/lesson-quiz", { prompt }).then((res) => res.data),
-  lessonTutor: (prompt) => api.post("/api/ai/lesson-tutor", { prompt }).then((res) => res.data),
+  chat: (prompt) => api.post("/ai/chat", { prompt }).then((res) => res.data),
+  grammar: (prompt) => api.post("/ai/grammar", { prompt }).then((res) => res.data),
+  vocabulary: (prompt) => api.post("/ai/vocabulary", { prompt }).then((res) => res.data),
+  improveSentence: (prompt) => api.post("/ai/improve-sentence", { prompt }).then((res) => res.data),
+  speakingFeedback: (prompt) => api.post("/ai/speaking-feedback", { prompt }).then((res) => res.data),
+  lessonQuiz: (prompt) => api.post("/ai/lesson-quiz", { prompt }).then((res) => res.data),
+  lessonTutor: (prompt) => api.post("/ai/lesson-tutor", { prompt }).then((res) => res.data),
 };
 
 export const chatService = {
-  history: () => api.get("/api/chat/history").then((res) => res.data),
-  detail: (id) => api.get(`/api/chat/session/${id}`).then((res) => res.data),
-  start: (mode) => api.post("/api/chat/start", { mode }).then((res) => res.data),
+  history: () => api.get("/chat/history").then((res) => res.data),
+  detail: (id) => api.get(`/chat/session/${id}`).then((res) => res.data),
+  start: (mode) => api.post("/chat/start", { mode }).then((res) => res.data),
   send: (sessionId, message, voiceEnabled, level) =>
-    api.post("/api/chat/message", { sessionId, message, voiceEnabled, level }).then((res) => res.data),
-  deleteSession: (id) => api.delete(`/api/chat/session/${id}`).then((res) => res.data),
-  rename: (id, title) => api.put(`/api/chat/session/${id}/rename`, { title }).then((res) => res.data),
-  toggleBookmark: (messageId) => api.post(`/api/chat/bookmark/${messageId}`).then((res) => res.data),
-  bookmarks: () => api.get("/api/chat/bookmarks").then((res) => res.data),
-  getHints: (id) => api.get(`/api/chat/hint/${id}`).then((res) => res.data),
+    api.post("/chat/message", { sessionId, message, voiceEnabled, level }).then((res) => res.data),
+  deleteSession: (id) => api.delete(`/chat/session/${id}`).then((res) => res.data),
+  rename: (id, title) => api.put(`/chat/session/${id}/rename`, { title }).then((res) => res.data),
+  toggleBookmark: (messageId) => api.post(`/chat/bookmark/${messageId}`).then((res) => res.data),
+  bookmarks: () => api.get("/chat/bookmarks").then((res) => res.data),
+  getHints: (id) => api.get(`/chat/hint/${id}`).then((res) => res.data),
 };
 
 export const speechService = {
@@ -98,54 +98,54 @@ export const speechService = {
     const formData = new FormData();
     formData.append("file", file);
     return api
-      .post("/api/speech/speech-to-text", formData, {
+      .post("/speech/speech-to-text", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => res.data);
   },
-  pronunciation: (text) => api.post("/api/speech/pronunciation", { text }).then((res) => res.data),
+  pronunciation: (text) => api.post("/speech/pronunciation", { text }).then((res) => res.data),
 };
 
 export const speakingService = {
-  create: (payload) => api.post("/api/speaking/create", payload).then((res) => res.data),
-  all: () => api.get("/api/speaking/get-all-sessions").then((res) => res.data),
-  start: (payload) => api.post("/api/speaking/start", payload).then((res) => res.data),
-  sendMessage: (payload) => api.post("/api/speaking/message", payload).then((res) => res.data),
-  end: (id) => api.post(`/api/speaking/end/${id}`).then((res) => res.data),
-  history: () => api.get("/api/speaking/history").then((res) => res.data),
-  detail: (id) => api.get(`/api/speaking/session/${id}`).then((res) => res.data),
-  remove: (id) => api.delete(`/api/speaking/${id}`).then((res) => res.data),
-  getHints: (id) => api.get(`/api/speaking/hint/${id}`).then((res) => res.data),
+  create: (payload) => api.post("/speaking/create", payload).then((res) => res.data),
+  all: () => api.get("/speaking/get-all-sessions").then((res) => res.data),
+  start: (payload) => api.post("/speaking/start", payload).then((res) => res.data),
+  sendMessage: (payload) => api.post("/speaking/message", payload).then((res) => res.data),
+  end: (id) => api.post(`/speaking/end/${id}`).then((res) => res.data),
+  history: () => api.get("/speaking/history").then((res) => res.data),
+  detail: (id) => api.get(`/speaking/session/${id}`).then((res) => res.data),
+  remove: (id) => api.delete(`/speaking/${id}`).then((res) => res.data),
+  getHints: (id) => api.get(`/speaking/hint/${id}`).then((res) => res.data),
 };
 
 export const progressService = {
-  get: () => api.get("/api/progress/get-progress").then((res) => res.data),
-  create: (payload) => api.post("/api/progress/create-progress", payload).then((res) => res.data),
-  update: (payload) => api.put("/api/progress/update-progress", payload).then((res) => res.data),
+  get: () => api.get("/progress/get-progress").then((res) => res.data),
+  create: (payload) => api.post("/progress/create-progress", payload).then((res) => res.data),
+  update: (payload) => api.put("/progress/update-progress", payload).then((res) => res.data),
 };
 
 export const achievementService = {
-  all: () => api.get("/api/achievement/get-all-achievements").then((res) => res.data),
-  unlocked: () => api.get("/api/achievement/get-unlocked-achievements").then((res) => res.data),
+  all: () => api.get("/achievement/get-all-achievements").then((res) => res.data),
+  unlocked: () => api.get("/achievement/get-unlocked-achievements").then((res) => res.data),
 };
 
 export const notificationService = {
-  all: () => api.get("/api/notification/get-all-notifications").then((res) => res.data),
-  unread: () => api.get("/api/notification/get-unread-notifications").then((res) => res.data),
-  countUnread: () => api.get("/api/notification/count-unread").then((res) => res.data),
-  markAsRead: (id) => api.put(`/api/notification/mark-as-read/${id}`).then((res) => res.data),
-  markAllRead: () => api.put("/api/notification/mark-all-read").then((res) => res.data),
-  delete: (id) => api.delete(`/api/notification/delete-notification/${id}`).then((res) => res.data),
-  clearAll: () => api.delete("/api/notification/clear-all").then((res) => res.data),
+  all: () => api.get("/notification/get-all-notifications").then((res) => res.data),
+  unread: () => api.get("/notification/get-unread-notifications").then((res) => res.data),
+  countUnread: () => api.get("/notification/count-unread").then((res) => res.data),
+  markAsRead: (id) => api.put(`/notification/mark-as-read/${id}`).then((res) => res.data),
+  markAllRead: () => api.put("/notification/mark-all-read").then((res) => res.data),
+  delete: (id) => api.delete(`/notification/delete-notification/${id}`).then((res) => res.data),
+  clearAll: () => api.delete("/notification/clear-all").then((res) => res.data),
   create: (title, message) =>
-    api.post("/api/notification/create-notification", { title, message, isRead: false }).then((res) => res.data),
+    api.post("/notification/create-notification", { title, message, isRead: false }).then((res) => res.data),
 };
 
 export const dashboardService = {
-  summary: () => optionalGet("/api/dashboard/summary", null),
-  recentActivity: () => optionalGet("/api/activity/recent", []),
-  weeklyProgress: () => optionalGet("/api/dashboard/weekly-progress", []),
-  dailyGoal: () => optionalGet("/api/dashboard/daily-goal", null),
-  statistics: () => optionalGet("/api/dashboard/statistics", null),
-  quote: () => optionalGet("/api/dashboard/quote", null),
+  summary: () => optionalGet("/dashboard/summary", null),
+  recentActivity: () => optionalGet("/activity/recent", []),
+  weeklyProgress: () => optionalGet("/dashboard/weekly-progress", []),
+  dailyGoal: () => optionalGet("/dashboard/daily-goal", null),
+  statistics: () => optionalGet("/dashboard/statistics", null),
+  quote: () => optionalGet("/dashboard/quote", null),
 };

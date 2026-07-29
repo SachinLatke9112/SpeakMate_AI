@@ -177,10 +177,10 @@ export function AdminDashboardPage() {
       <section>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
           <div className="lg:col-span-8">
-            <ActivityChart data={dashboardData} loading={false} error={null} onRetry={() => {}} />
+            <ActivityChart data={dashboardData} loading={false} error={null} onRetry={() => { }} />
           </div>
           <div className="lg:col-span-4">
-            <UserOverviewChart data={chartData.userData} loading={false} error={null} onRetry={() => {}} />
+            <UserOverviewChart data={chartData.userData} loading={false} error={null} onRetry={() => { }} />
           </div>
         </div>
       </section>
@@ -189,7 +189,7 @@ export function AdminDashboardPage() {
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-[22px] font-black text-slate-950">Recent Users</h2>
+              <h2 className="text-lg font-semibold text-slate-950">Recent Users</h2>
               <Link to={ROUTES.ADMIN_USERS}>
                 <Button variant="ghost" size="sm">View all</Button>
               </Link>
@@ -198,7 +198,7 @@ export function AdminDashboardPage() {
               users={users}
               usersLoading={false}
               usersError={null}
-              onRetry={() => {}}
+              onRetry={() => { }}
               onActivate={handleActivateUser}
               onDeactivate={handleDeactivateUser}
             />
@@ -206,7 +206,7 @@ export function AdminDashboardPage() {
 
           <div className="lg:col-span-5 space-y-6">
             <div className="h-[380px]">
-              <LessonOverviewChart data={chartData.lessonData} loading={false} error={null} onRetry={() => {}} />
+              <LessonOverviewChart data={chartData.lessonData} loading={false} error={null} onRetry={() => { }} />
             </div>
             <AdminRecentTransactions />
           </div>
@@ -214,7 +214,7 @@ export function AdminDashboardPage() {
       </section>
 
       <section>
-        <h2 className="text-[22px] font-black text-slate-950 mb-4">Quick Actions</h2>
+        <h2 className="mb-4 text-lg font-semibold text-slate-950">Quick Actions</h2>
         <QuickActions />
       </section>
     </div>

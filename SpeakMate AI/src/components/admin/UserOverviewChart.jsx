@@ -64,7 +64,7 @@ export function UserOverviewChart({ data, loading, error, onRetry }) {
 
   return (
     <Card className="p-6">
-      <h3 className="text-sm font-semibold text-slate-950 mb-4">User Overview</h3>
+      <h3 className="mb-4 text-lg font-semibold text-slate-950">User Overview</h3>
       <ResponsiveContainer width="100%" height={280}>
         <BarChart data={data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f8fafc" />

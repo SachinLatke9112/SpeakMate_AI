@@ -82,7 +82,7 @@ export function ActivityChart({ data, loading, error, onRetry }) {
 
   return (
     <Card className="lg:col-span-2 p-6">
-      <h3 className="text-sm font-semibold text-slate-950 mb-4">Recent Activity</h3>
+      <h3 className="mb-4 text-lg font-semibold text-slate-950">Recent Activity</h3>
       <ResponsiveContainer width="100%" height={280}>
         <AreaChart data={chartData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
           <defs>

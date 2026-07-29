@@ -10,9 +10,8 @@ function TransactionRow({ txn, index }) {
       className="flex items-center gap-3 rounded-xl px-4 py-2.5 transition-colors hover:bg-slate-50"
     >
       <div
-        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm ${
-          txn.type === "credit" ? "bg-emerald-50" : "bg-slate-100"
-        }`}
+        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm ${txn.type === "credit" ? "bg-emerald-50" : "bg-slate-100"
+          }`}
       >
         {txn.icon}
       </div>
@@ -22,9 +21,8 @@ function TransactionRow({ txn, index }) {
       </div>
       <div className="text-right shrink-0">
         <p
-          className={`text-sm font-bold ${
-            txn.type === "credit" ? "text-emerald-600" : "text-slate-900"
-          }`}
+          className={`text-sm font-bold ${txn.type === "credit" ? "text-emerald-600" : "text-slate-900"
+            }`}
         >
           {txn.amount}
         </p>
@@ -75,9 +73,9 @@ const transactions = [
 
 export function AdminRecentTransactions() {
   return (
-    <Card className="p-5">
+    <Card className="p-6">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-black text-slate-950">Recent Transactions</h3>
+        <h3 className="text-lg font-semibold text-slate-950">Recent Transactions</h3>
         <button
           type="button"
           className="inline-flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-indigo-600"

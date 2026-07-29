@@ -53,7 +53,7 @@ function QuickActionCard({ action, index }) {
       transition={{ duration: 0.3, delay: index * 0.05 }}
     >
       <Link to={action.route}>
-        <Card className="group h-full p-5 transition-all duration-300 hover:border-indigo-200 hover:shadow-md">
+        <Card className="group h-full p-6 transition-all duration-300 hover:border-purple-200 hover:shadow-md">
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-3">
               <div
@@ -62,10 +62,10 @@ function QuickActionCard({ action, index }) {
                 <action.icon size={20} strokeWidth={1.5} />
               </div>
               <div>
-                <h3 className="text-sm font-bold text-slate-950">
+                <h3 className="text-base font-semibold text-slate-950">
                   {action.title}
                 </h3>
-                <p className="mt-0.5 text-xs leading-5 text-slate-500">
+                <p className="mt-1 text-sm leading-5 text-gray-500">
                   {action.text}
                 </p>
               </div>
@@ -83,7 +83,7 @@ function QuickActionCard({ action, index }) {
 
 export default function QuickActions() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {quickActions.map((action, index) => (
         <QuickActionCard key={action.title} action={action} index={index} />
       ))}

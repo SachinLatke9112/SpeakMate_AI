@@ -51,7 +51,7 @@ export function AdminLayout() {
   const pageTitle = navItems.find((item) => location.pathname === item.href || (item.href !== ROUTES.ADMIN && location.pathname.startsWith(item.href)))?.label || "Dashboard";
 
   return (
-    <div className="flex h-screen overflow-hidden bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-100">
+    <div className="flex h-screen overflow-hidden bg-gray-50 text-slate-950 dark:bg-slate-950 dark:text-slate-100">
       {sidebarOpen && (
         <div
           className="fixed inset-0 z-40 bg-black/30 lg:hidden"
@@ -60,14 +60,14 @@ export function AdminLayout() {
       )}
 
       <aside
-        className={`fixed inset-y-0 left-0 z-50 flex w-64 flex-col transform border-r border-slate-200 bg-white transition-transform duration-200 ease-out dark:border-slate-700 dark:bg-slate-900 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0 lg:static lg:z-auto lg:flex-shrink-0`}
+        className={`fixed inset-y-0 left-0 z-50 flex w-64 flex-col transform border-r border-gray-200 bg-white shadow-lg transition-transform duration-200 ease-out dark:border-slate-700 dark:bg-slate-900 dark:shadow-none ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0 lg:static lg:z-auto lg:flex-shrink-0 lg:shadow-sm`}
       >
-        <div className="flex h-16 flex-shrink-0 items-center gap-2 border-b border-slate-200 px-5 dark:border-slate-700">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-white text-sm font-bold">
+        <div className="flex h-[72px] flex-shrink-0 items-center gap-3 border-b border-gray-200 px-5 dark:border-slate-700">
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 text-sm font-bold text-white shadow-md shadow-purple-500/20">
             S
           </div>
           <span className="text-base font-bold tracking-tight text-slate-950 dark:text-white">SpeakMateAI</span>
-          <span className="ml-auto rounded-full bg-purple-100 px-2 py-0.5 text-[10px] font-semibold text-purple-700 uppercase tracking-wider dark:bg-purple-900/40 dark:text-purple-300">
+          <span className="ml-auto rounded-full bg-purple-50 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-purple-700 dark:bg-purple-900/40 dark:text-purple-300">
             Admin
           </span>
           <button
@@ -79,16 +79,16 @@ export function AdminLayout() {
           </button>
         </div>
 
-        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-3 py-4">
+        <nav className="flex flex-1 flex-col gap-1.5 overflow-y-auto px-3 py-5">
           {navItems.map((item) => (
             <NavLink
               key={item.href}
               to={item.href}
               onClick={() => setSidebarOpen(false)}
               className={({ isActive }) =>
-                `flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${isActive
-                  ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
+                `flex items-center gap-3 rounded-xl border px-3 py-3 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/30 ${isActive
+                  ? "border-purple-100 bg-purple-50 text-purple-700 shadow-sm dark:border-indigo-900 dark:bg-indigo-950 dark:text-indigo-300 dark:shadow-none"
+                  : "border-transparent text-gray-500 hover:bg-gray-50 hover:text-gray-900 dark:text-slate-400 dark:hover:border-slate-700 dark:hover:bg-slate-800 dark:hover:text-white dark:hover:shadow-none"
                 }`
               }
             >
@@ -98,7 +98,7 @@ export function AdminLayout() {
           ))}
         </nav>
 
-        <div className="flex-shrink-0 border-t border-slate-200 p-4 dark:border-slate-700">
+        <div className="flex-shrink-0 border-t border-gray-200 p-4 dark:border-slate-700">
           <div className="flex items-center gap-3 mb-3">
             <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-slate-200 text-xs font-semibold text-slate-600 dark:bg-slate-700 dark:text-slate-300">
               {initials || "A"}
@@ -112,7 +112,7 @@ export function AdminLayout() {
           </div>
           <button
             onClick={logout}
-            className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+            className="flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-gray-500 transition-colors hover:bg-gray-50 hover:text-gray-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200"
           >
             <LogOut size={16} strokeWidth={1.5} />
             Sign out
@@ -121,7 +121,7 @@ export function AdminLayout() {
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-30 flex h-16 flex-shrink-0 items-center justify-between gap-3 border-b border-slate-200 bg-white/90 px-4 backdrop-blur dark:border-slate-700 dark:bg-slate-900/90 sm:px-6 lg:px-8">
+        <header className="sticky top-0 z-30 flex h-[72px] flex-shrink-0 items-center justify-between gap-3 border-b border-gray-200 bg-white/95 px-4 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-900/90 dark:shadow-none sm:px-6 lg:px-8">
           <div className="flex min-w-0 flex-1 items-center gap-3">
             <button
               className="flex-shrink-0 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 lg:hidden"
@@ -130,7 +130,7 @@ export function AdminLayout() {
             >
               <Menu size={20} />
             </button>
-            <h1 className="min-w-0 truncate text-base font-bold text-slate-950 dark:text-white">{pageTitle}</h1>
+            <h1 className="min-w-0 truncate text-xs font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-white">{pageTitle}</h1>
           </div>
 
           <div className="flex flex-shrink-0 items-center gap-2 sm:gap-3">
@@ -139,18 +139,18 @@ export function AdminLayout() {
               <input
                 type="text"
                 placeholder="Search..."
-                className="h-9 w-full rounded-xl border border-slate-200 bg-slate-50 pl-9 pr-4 text-sm font-medium text-slate-900 placeholder:font-normal placeholder:text-slate-400 transition focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+                className="h-10 w-full rounded-full border border-gray-200 bg-gray-50 pl-9 pr-4 text-sm font-medium text-slate-900 shadow-sm placeholder:font-normal placeholder:text-slate-400 transition hover:border-gray-300 hover:bg-white focus:border-purple-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:shadow-none"
                 aria-label="Search admin"
               />
             </div>
 
-            <button type="button" onClick={toggleTheme} className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:text-indigo-600 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200" aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}>
+            <button type="button" onClick={toggleTheme} className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-slate-600 shadow-sm transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-700 focus-visible:ring-2 focus-visible:ring-purple-500/30 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:shadow-none dark:hover:bg-slate-700" aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}>
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
             <button
               type="button"
-              className="relative flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50 hover:text-indigo-600 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200"
+              className="relative flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-slate-600 shadow-sm transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-700 focus-visible:ring-2 focus-visible:ring-purple-500/30 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:shadow-none"
               aria-label="Notifications"
             >
               <Bell size={18} strokeWidth={1.5} />
@@ -159,7 +159,7 @@ export function AdminLayout() {
               </span>
             </button>
 
-            <button type="button" className="flex flex-shrink-0 items-center gap-2 rounded-xl border border-slate-200 bg-white px-2.5 py-1.5 transition hover:border-indigo-200 hover:shadow-sm dark:border-slate-600 dark:bg-slate-800" aria-label="Open admin profile menu">
+            <button type="button" className="flex h-10 flex-shrink-0 items-center gap-2 rounded-full border border-gray-200 bg-white px-1.5 pr-3 shadow-sm transition hover:border-purple-200 hover:bg-purple-50 focus-visible:ring-2 focus-visible:ring-purple-500/30 dark:border-slate-600 dark:bg-slate-800 dark:shadow-none dark:hover:bg-slate-700" aria-label="Open admin profile menu">
               <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-violet-500 text-xs font-bold text-white">
                 {initials || "A"}
               </div>
@@ -172,7 +172,7 @@ export function AdminLayout() {
         </header>
 
         <main className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
-          <div className="mx-auto w-full max-w-[1400px] px-4 py-6 sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-[1400px] px-4 py-7 sm:px-6 lg:px-8 lg:py-8">
             <Outlet />
           </div>
         </main>

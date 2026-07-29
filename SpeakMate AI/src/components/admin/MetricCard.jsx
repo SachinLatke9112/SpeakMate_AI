@@ -33,7 +33,7 @@ function TrendBadge({ trend }) {
 
 function MetricSkeleton() {
   return (
-    <Card className="p-4">
+    <Card className="p-5">
       <div className="flex items-center gap-3">
         <div className="h-8 w-8 rounded-lg bg-slate-100 animate-pulse" />
         <div className="flex-1 space-y-2">
@@ -52,7 +52,7 @@ export function MetricCard({ icon: Icon, label, value, trend, loading, error, on
 
   if (error) {
     return (
-      <Card className="flex h-[130px] flex-col items-center justify-center gap-3 p-4">
+      <Card className="flex h-[140px] flex-col items-center justify-center gap-3 p-5">
         <AlertCircle size={18} className="text-red-400" />
         <p className="text-xs text-slate-500">Failed to load</p>
         {onRetry && (
@@ -70,21 +70,21 @@ export function MetricCard({ icon: Icon, label, value, trend, loading, error, on
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.04 }}
       whileHover={{ y: -4, boxShadow: "0px 12px 40px rgba(0,0,0,0.06)" }}
-      className="group relative h-[130px] overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm transition-all duration-300 hover:border-indigo-100"
+      className="group relative h-[140px] overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:border-purple-100"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="relative z-10 flex h-full flex-col justify-between">
         <div className="flex items-start justify-between">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 transition-colors group-hover:bg-indigo-100">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-50 text-purple-600 transition-colors group-hover:bg-purple-100">
             {Icon && <Icon size={18} strokeWidth={1.5} />}
           </div>
           <TrendBadge trend={trend} />
         </div>
         <div>
-          <p className="text-[28px] font-extrabold tracking-tight text-slate-950 leading-none">
+          <p className="text-[28px] font-bold tracking-tight text-slate-950 leading-none">
             {formatValue(value)}
           </p>
-          <p className="mt-1 text-xs font-medium text-slate-500">{label}</p>
+          <p className="mt-1.5 text-sm font-medium text-gray-500">{label}</p>
         </div>
       </div>
     </motion.div>
@@ -95,7 +95,7 @@ export function MetricCardGrid({ metrics, className = "" }) {
   if (!metrics || metrics.length === 0) return null;
 
   return (
-    <div className={`grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 ${className}`}>
+    <div className={`grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 ${className}`}>
       {metrics.map((metric, index) => (
         <MetricCard
           key={metric.label}

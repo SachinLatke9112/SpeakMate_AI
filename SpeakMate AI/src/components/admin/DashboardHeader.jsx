@@ -22,14 +22,14 @@ function AdminDashboardHeader({ onRefresh, loading }) {
       className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"
     >
       <div>
-        <span className="inline-flex rounded-full bg-indigo-50 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-indigo-700 ring-1 ring-inset ring-indigo-700/10">
+        <span className="inline-flex rounded-full bg-purple-50 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-purple-700 ring-1 ring-inset ring-purple-700/10">
           Admin Dashboard
         </span>
-        <h1 className="mt-3 text-[40px] font-bold tracking-tight text-slate-950 leading-[1.1]">
+        <h1 className="mt-3 text-2xl font-bold tracking-tight text-slate-950 leading-[1.1] md:text-3xl">
           Welcome back, {fullName} 👋
         </h1>
-        <p className="mt-2 text-sm font-medium text-slate-500">{today}</p>
-        <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-500">
+        <p className="mt-2 text-sm font-medium text-gray-500">{today}</p>
+        <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
           Monitor platform health at a glance. Manage users, review content,
           and keep the SpeakMateAI experience running smoothly.
         </p>

@@ -67,7 +67,7 @@ export function AppRoutes() {
             element={
               <PublicRoute>
                 <PageTransition>
-                  <LandingPage />
+                  <Navigate to={ROUTES.ADMIN_USERS} replace />
                 </PageTransition>
               </PublicRoute>
             }

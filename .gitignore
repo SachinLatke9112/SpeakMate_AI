@@ -56,3 +56,7 @@ frontend_all_code.txt
 
 # --- Hold from push until user requests ---
 ADMIN_PANEL_MASTER_DOCUMENTATION.md
+
+.kilo/
+SpeakMateAI-App/
+SpeakMate_AI/
