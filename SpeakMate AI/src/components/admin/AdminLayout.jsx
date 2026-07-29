@@ -159,12 +159,13 @@ export function AdminLayout() {
               </span>
             </button>
 
-            <button type="button" className="flex h-10 flex-shrink-0 items-center gap-2 rounded-full border border-gray-200 bg-white px-1.5 pr-3 shadow-sm transition hover:border-purple-200 hover:bg-purple-50 focus-visible:ring-2 focus-visible:ring-purple-500/30 dark:border-slate-600 dark:bg-slate-800 dark:shadow-none dark:hover:bg-slate-700" aria-label="Open admin profile menu">
-              <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-violet-500 text-xs font-bold text-white">
+            <button type="button" className="flex h-10 flex-shrink-0 items-center gap-3 rounded-2xl border border-gray-200 bg-white px-2 pr-4 shadow-sm transition hover:border-purple-200 hover:bg-purple-50 focus-visible:ring-2 focus-visible:ring-purple-500/30 dark:border-slate-600 dark:bg-slate-800 dark:shadow-none dark:hover:bg-slate-700" aria-label="Open admin profile menu">
+              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-violet-500 text-xs font-bold text-white">
                 {initials || "A"}
               </div>
-              <span className="hidden max-w-[100px] truncate text-sm font-medium text-slate-700 dark:text-slate-200 sm:block">
-                {fullName}
+              <span className="hidden min-w-0 text-left sm:block">
+                <span className="block text-sm font-semibold text-slate-900 dark:text-white">{fullName}</span>
+                <span className="block text-xs text-slate-500 dark:text-slate-400">{user?.email}</span>
               </span>
               <ChevronDown size={14} className="hidden flex-shrink-0 text-slate-400 sm:block" />
             </button>

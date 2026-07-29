@@ -219,6 +219,6 @@ function Status({ value }: { value: User["status"] }) {
   );
 }
 
-function Chart({ children }: { children: React.ReactNode }) {
+function Chart({ children }: { children: ReactNode }) {
   return <div className="h-72 w-full rounded-xl border p-3 dark:border-slate-700">{children}</div>;
 }
