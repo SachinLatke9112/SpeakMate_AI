@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { X, Pencil, Trash2, Flame, Clock3, BookOpenCheck, Sparkles, Trophy, Mic2 } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
